@@ -28,7 +28,8 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}>
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
 
-      <div>
+        {/* Logo on Right */}
+        <div>
           <Link href="/" className="relative group">
             <Image
               src="/circle-logo.png"
@@ -55,14 +56,16 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* CTA Button on Left */}
         <div className="hidden md:flex">
           <Link
             href="#contact"
-            className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full shadow-lg transition-all"
+            className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105"
           >
-            <Sparkles size={18} className="animate-pulse" />
-            اتصل بنا الآن
-            <Phone size={18} />
+            <Sparkles size={18} className="animate-pulse text-yellow-300" />
+            <span className="relative z-10">اتصل بنا الآن</span>
+            <Phone size={18} className="text-white" />
+            <span className="absolute inset-0 rounded-xl bg-green-400 opacity-10 hover:opacity-20 transition-opacity duration-300" />
           </Link>
         </div>
 
@@ -92,11 +95,12 @@ const Navbar = () => {
             <Link
               href="#contact"
               onClick={closeMobileMenu}
-              className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full shadow-lg transition"
+              className="relative flex items-center justify-center gap-3 w-full py-3 px-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105"
             >
-              <Sparkles size={18} className="animate-pulse" />
-              اتصل بنا الآن
-              <Phone size={18} />
+              <Sparkles size={18} className="animate-pulse text-yellow-300" />
+              <span className="relative z-10">اتصل بنا الآن</span>
+              <Phone size={18} className="text-white" />
+              <span className="absolute inset-0 rounded-xl bg-green-400 opacity-10 hover:opacity-20 transition-opacity duration-300" />
             </Link>
           </div>
         </div>
