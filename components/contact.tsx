@@ -37,7 +37,7 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-green-100 px-6 py-2 rounded-full mb-6">
-            <Headphones size={20} className="text-green-600" />
+            <Phone size={20} className="text-green-600" />
             <span className="text-green-700 font-bold">تواصل معنا</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">
