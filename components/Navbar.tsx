@@ -45,13 +45,13 @@ const Navbar = () => {
         <div className="hidden md:flex flex-1 justify-center">
           <div className="flex flex-row gap-10">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
-                className={`font-bold text-lg transition-all duration-200 hover:text-green-600 ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-xl'}`}
+                className={`font-bold text-lg transition-all duration-200 hover:text-green-600 cursor-pointer ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-xl'}`}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
