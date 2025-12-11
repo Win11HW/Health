@@ -33,7 +33,7 @@ export default function Contact() {
   return (
     <div className="bg-gradient-to-br from-green-50 via-white to-teal-50 py-24" dir="rtl" id="contact">
       <div className="container mx-auto px-6">
-
+ 
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-green-100 px-6 py-2 rounded-full mb-6">
