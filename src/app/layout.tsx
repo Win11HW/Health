@@ -3,6 +3,7 @@ import { Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
+import Stats from "../../components/Stats";
 import About from "../../components/About";
 import Services from "../../components/Services";
 import Contact from "../../components/contact";
@@ -21,7 +22,7 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "صيدلية الشفاء - شريكك الموثوق في الرعاية الصحية",
+  title: "صيدلية الشفاء",
   description: "صيدلية الشفاء تقدم أجود الأدوية والمستحضرات الطبية مع خدمة استشارية متميزة على مدار الساعة في طرابلس، ليبيا",
   keywords: "صيدلية، أدوية، طرابلس، ليبيا، رعاية صحية، استشارات طبية",
   authors: [{ name: "صيدلية الشفاء" }],
@@ -39,6 +40,7 @@ export default function RootLayout({
       >
         <Navbar />
         <Hero />
+        <Stats />
         <About />
         <Services />
         <Contact />

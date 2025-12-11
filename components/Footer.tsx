@@ -23,8 +23,8 @@ const TikTokIcon = () => (
 
 export default function Footer() {
   const quickLinks = [
-    { label: "الرئيسية", href: "#" },
-    { label: "من نحن", href: "#About" },
+    { label: "الرئيسية", href: "#hero" },
+    { label: "من نحن", href: "#about" },
     { label: "خدماتنا", href: "#services" },
     { label: "تواصل معنا", href: "#contact" }
   ];

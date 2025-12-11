@@ -4,7 +4,7 @@ import { Phone, Clock, MapPin, ShieldCheck, Star } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen" id="#">
+    <div className="relative min-h-screen" id="hero">
       
       {/* Background Image */}
       <div className="absolute inset-0">
