@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, ArrowLeft, Clock, MapPin, Award, Sparkles } from "lucide-react";
@@ -161,14 +163,6 @@ export default function Hero() {
 
           </div>
 
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
-          <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center relative">
-            <div className="w-1.5 h-4 bg-gradient-to-b from-emerald-300 to-white rounded-full mt-2 animate-bounce"></div>
-          </div>
-          <p className="text-white/70 text-sm mt-2 font-medium">اسحب للأسفل</p>
         </div>
       </div>
     </div>
