@@ -80,12 +80,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <Link 
+                  <a 
                     href={link.href} 
-                    className="text-gray-300 hover:text-emerald-300 transition-colors duration-300 text-lg hover:translate-x-2 inline-block"
+                    className="text-gray-300 hover:text-emerald-300 transition-colors duration-300 text-lg hover:translate-x-2 inline-block cursor-pointer"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

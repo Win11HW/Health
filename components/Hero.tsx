@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Phone, Clock, MapPin, ShieldCheck, Star } from "lucide-react";
 
 export default function Hero() {
@@ -59,21 +58,21 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-            <Link 
+            <a 
               href="#contact"
-              className="group relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl hover:shadow-green-500/25 hover:scale-105 flex items-center justify-center gap-3"
+              className="group relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl hover:shadow-green-500/25 hover:scale-105 flex items-center justify-center gap-3 cursor-pointer"
             >
               <Phone size={24} />
               تواصل معنا الآن
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
-            </Link>
+            </a>
             
-            <Link 
+            <a 
               href="#services"
-              className="bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/40 hover:border-white/60 px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-3"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/40 hover:border-white/60 px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-3 cursor-pointer"
             >
               استكشف خدماتنا
-            </Link>
+            </a>
           </div>
 
           {/* Info Cards */}

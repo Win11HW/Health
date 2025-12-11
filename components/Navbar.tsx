@@ -58,15 +58,15 @@ const Navbar = () => {
 
         {/* CTA Button on Left */}
         <div className="hidden md:flex">
-          <Link
+          <a
             href="#contact"
-            className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105"
+            className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 cursor-pointer"
           >
             <Sparkles size={18} className="animate-pulse text-yellow-300" />
             <span className="relative z-10">اتصل بنا الآن</span>
             <Phone size={18} className="text-white" />
             <span className="absolute inset-0 rounded-xl bg-green-400 opacity-10 hover:opacity-20 transition-opacity duration-300" />
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,25 +83,25 @@ const Navbar = () => {
         <div className={`md:hidden ${isScrolled ? 'bg-white/95 backdrop-blur-lg' : 'bg-gray-900/95 backdrop-blur-lg'}`}>
           <div className="flex flex-col items-start gap-6 p-6">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
                 onClick={closeMobileMenu}
-                className="w-full text-right py-3 px-4 font-bold text-xl hover:bg-green-100 rounded-lg transition"
+                className="w-full text-right py-3 px-4 font-bold text-xl hover:bg-green-100 rounded-lg transition cursor-pointer"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
-            <Link
+            <a
               href="#contact"
               onClick={closeMobileMenu}
-              className="relative flex items-center justify-center gap-3 w-full py-3 px-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105"
+              className="relative flex items-center justify-center gap-3 w-full py-3 px-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 cursor-pointer"
             >
               <Sparkles size={18} className="animate-pulse text-yellow-300" />
               <span className="relative z-10">اتصل بنا الآن</span>
               <Phone size={18} className="text-white" />
               <span className="absolute inset-0 rounded-xl bg-green-400 opacity-10 hover:opacity-20 transition-opacity duration-300" />
-            </Link>
+            </a>
           </div>
         </div>
       )}
