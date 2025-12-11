@@ -7,14 +7,15 @@ export default function Hero() {
     <div className="min-h-screen relative overflow-hidden" id="#">
       <div className="relative w-full h-screen"> 
         {/* Background Image */}
-        <div className="absolute inset-0 hero-bg-container">
+          <div className="absolute inset-0">
           <Image
             src="/hero-bg.jpg"
-            alt="صيدلية الشفاء - الرعاية الصحية المتميزة"
+            alt="Hero Background"
             fill
+            className="object-cover w-full h-full"
             priority
-            className="object-cover hero-bg-image"
           />
+          <div className="absolute inset-0 bg-black/40"></div> {/* optional overlay */}
         </div>
         
         {/* Gradient Overlays */}
@@ -69,7 +70,7 @@ export default function Hero() {
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6 z-10">
 
           {/* Hero Title */}
-          <div className="hero-title-container mb-8">
+          <div className="hero-title-container mb-0">
             <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-4">
               <span className="hero-gradient-text bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent animate-gradient">
                 صحتك أمانة
@@ -88,7 +89,7 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="hero-cta-container flex flex-col sm:flex-row gap-6 mb-20 mt-8">
+          <div className="hero-cta-container flex flex-col sm:flex-row gap-6 mb-20 mt-0">
             <Link 
               href="#contact"
               className="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300"
