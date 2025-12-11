@@ -1,162 +1,128 @@
-"use client";
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, ArrowLeft, Clock, MapPin, Award, Sparkles } from "lucide-react";
+import { Phone, Clock, MapPin, ShieldCheck, Star } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="min-h-screen relative overflow-hidden" id="#">
-      <div className="relative w-full h-screen"> 
-        {/* Background Image */}
-          <div className="absolute inset-0">
-          <Image
-            src="/hero-bg.jpg"
-            alt="Hero Background"
-            fill
-            className="object-cover w-full h-full"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40"></div> {/* optional overlay */}
-        </div>
-        
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/85 via-gray-900/75 to-emerald-800/90"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-        
-        {/* Animated Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="floating-element absolute top-20 right-20 w-40 h-40 bg-gradient-to-r from-emerald-400/15 to-teal-400/15 rounded-full blur-3xl animate-float"></div>
-          <div className="floating-element absolute bottom-40 left-20 w-60 h-60 bg-gradient-to-r from-blue-400/10 to-emerald-400/10 rounded-full blur-3xl animate-float-delayed"></div>
-          <div className="floating-element absolute top-1/2 left-1/3 w-32 h-32 bg-gradient-to-r from-teal-400/10 to-emerald-400/10 rounded-full blur-2xl animate-pulse"></div>
+    <div className="relative min-h-screen" id="#">
+      
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/hero-bg.jpg"
+          alt="صيدلية الشفاء - الرعاية الصحية المتميزة"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Professional Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/80 via-green-900/70 to-emerald-800/90"></div>
+      </div>
+
+      {/* Floating Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-10 w-32 h-32 bg-green-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-10 w-40 h-40 bg-teal-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-6 py-32 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
           
-          {/* Particles */}
-          <div className="particles absolute inset-0">
-            {[
-              { left: '10%', top: '20%', delay: '0s', duration: '2s' },
-              { left: '25%', top: '15%', delay: '0.5s', duration: '3s' },
-              { left: '40%', top: '30%', delay: '1s', duration: '2.5s' },
-              { left: '60%', top: '10%', delay: '1.5s', duration: '3.5s' },
-              { left: '75%', top: '25%', delay: '2s', duration: '2s' },
-              { left: '90%', top: '35%', delay: '0.3s', duration: '4s' },
-              { left: '15%', top: '50%', delay: '1.2s', duration: '2.8s' },
-              { left: '35%', top: '60%', delay: '0.8s', duration: '3.2s' },
-              { left: '55%', top: '45%', delay: '2.5s', duration: '2.3s' },
-              { left: '80%', top: '55%', delay: '0.2s', duration: '3.8s' },
-              { left: '20%', top: '70%', delay: '1.8s', duration: '2.7s' },
-              { left: '45%', top: '80%', delay: '0.7s', duration: '3.3s' },
-              { left: '70%', top: '75%', delay: '2.2s', duration: '2.1s' },
-              { left: '85%', top: '85%', delay: '1.3s', duration: '3.7s' },
-              { left: '5%', top: '40%', delay: '0.9s', duration: '2.9s' },
-              { left: '30%', top: '5%', delay: '2.8s', duration: '2.4s' },
-              { left: '50%', top: '90%', delay: '0.4s', duration: '3.6s' },
-              { left: '65%', top: '65%', delay: '1.7s', duration: '2.6s' },
-              { left: '95%', top: '50%', delay: '2.3s', duration: '3.1s' },
-              { left: '12%', top: '85%', delay: '1.1s', duration: '2.2s' }
-            ].map((particle, i) => (
-              <div
-                key={i}
-                className="particle absolute w-1 h-1 bg-white/30 rounded-full animate-twinkle"
-                style={{
-                  left: particle.left,
-                  top: particle.top,
-                  animationDelay: particle.delay,
-                  animationDuration: particle.duration
-                }}
-              />
-            ))}
+          {/* Trust Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <span className="text-white font-bold">موثوق من +1000 عميل</span>
+            </div>
           </div>
-        </div>
 
-        {/* Main Content */}
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6 z-10">
-
-          {/* Hero Title */}
-          <div className="hero-title-container mb-0">
-            <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-4">
-              <span className="hero-gradient-text bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent animate-gradient">
-                صحتك أمانة
-                في أيدٍ أمينة
-              </span>
+          {/* Main Heading */}
+          <div className="text-white mb-12">
+            <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
+              صحتك أمانة
             </h1>
+            <h2 className="text-4xl md:text-6xl font-black text-green-300 mb-8">
+              في أيد أمينة
+            </h2>
             
-            <div className="hero-line w-32 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 mx-auto rounded-full shadow-lg"></div>
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-medium">
+              صيدلية الشفاء - شريكك الموثوق في الرعاية الصحية المتكاملة
+              <br className="hidden md:block" />
+              نقدم لكم أجود الأدوية والمستحضرات الطبية مع خدمة استشارية متميزة على مدار الساعة
+            </p>
           </div>
-
-          {/* Hero Subtitle */}
-          <p className="hero-subtitle text-xl md:text-2xl max-w-4xl opacity-95 mb-16 font-medium">
-            <span className="text-emerald-200 font-bold">صيدلية الشفاء</span> - شريكك الموثوق في الرعاية الصحية المتكاملة.
-            <br className="hidden md:block" />
-            نقدم أجود الأدوية والمستحضرات الطبية مع خدمة استشارية متميزة على مدار الساعة.
-          </p>
 
           {/* CTA Buttons */}
-          <div className="hero-cta-container flex flex-col sm:flex-row gap-6 mb-20 mt-0">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
             <Link 
               href="#contact"
-              className="group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="group relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl hover:shadow-green-500/25 hover:scale-105 flex items-center justify-center gap-3"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-              <div className="relative flex items-center justify-center gap-4 px-12 py-5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xl rounded-2xl shadow-2xl group-hover:shadow-emerald-500/25 transition-all duration-300">
-                <Sparkles size={24} className="animate-pulse" />
-                تواصل معنا الآن
-                <Phone size={24} />
-              </div>
+              <Phone size={24} />
+              تواصل معنا الآن
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
             </Link>
-
+            
             <Link 
               href="#services"
-              className="group relative overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/40 hover:border-white/60 px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-3"
             >
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-              <div className="relative flex items-center justify-center gap-4 px-12 py-5 bg-white/15 hover:bg-white/25 border border-white/40 backdrop-blur-2xl text-white font-bold text-xl rounded-2xl shadow-xl">
-                استكشف خدماتنا
-                <ArrowLeft size={24} />
-              </div>
+              استكشف خدماتنا
             </Link>
           </div>
 
           {/* Info Cards */}
-          <div className="hero-cards-container grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            
             {/* Hours Card */}
-            <div className="premium-info-card group relative">
-              <div className="card-glow absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-white/15 backdrop-blur-2xl px-10 py-8 rounded-2xl border border-white/30 flex items-center gap-6 hover:bg-white/20 transition-all duration-500 shadow-2xl">
-                <div className="icon-container p-4 bg-emerald-500/20 rounded-2xl">
-                  <Clock size={36} className="text-emerald-300" />
-                </div>
-                <div className="text-right">
-                  <h3 className="text-2xl font-bold mb-2">ساعات العمل</h3>
-                  <p className="text-xl opacity-90 font-medium">24 ساعة / 7 أيام</p>
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-teal-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all shadow-xl">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-green-500/20 rounded-xl">
+                    <Clock size={32} className="text-green-300" />
+                  </div>
+                  <div className="text-right flex-1">
+                    <h3 className="text-white font-bold text-lg mb-1">خدمة 24 ساعة</h3>
+                    <p className="text-white/80 text-sm">نحن في خدمتكم دائماً</p>
+                  </div>
                 </div>
               </div>
             </div>
-
+            
             {/* Location Card */}
-            <div className="premium-info-card group relative">
-              <div className="card-glow absolute inset-0 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-white/15 backdrop-blur-2xl px-10 py-8 rounded-2xl border border-white/30 flex items-center gap-6 hover:bg-white/20 transition-all duration-500 shadow-2xl">
-                <div className="icon-container p-4 bg-blue-500/20 rounded-2xl">
-                  <MapPin size={36} className="text-blue-300" />
-                </div>
-                <div className="text-right">
-                  <h3 className="text-2xl font-bold mb-2">الموقع</h3>
-                  <p className="text-xl opacity-90 font-medium">طرابلس، ليبيا</p>
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-green-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all shadow-xl">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-blue-500/20 rounded-xl">
+                    <MapPin size={32} className="text-blue-300" />
+                  </div>
+                  <div className="text-right flex-1">
+                    <h3 className="text-white font-bold text-lg mb-1">توصيل سريع</h3>
+                    <p className="text-white/80 text-sm">لجميع أنحاء المدينة</p>
+                  </div>
                 </div>
               </div>
             </div>
-
+            
             {/* Quality Card */}
-            <div className="premium-info-card group relative">
-              <div className="card-glow absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-emerald-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-white/15 backdrop-blur-2xl px-10 py-8 rounded-2xl border border-white/30 flex items-center gap-6 hover:bg-white/20 transition-all duration-500 shadow-2xl">
-                <div className="icon-container p-4 bg-yellow-500/20 rounded-2xl">
-                  <Award size={36} className="text-yellow-300" />
-                </div>
-                <div className="text-right">
-                  <h3 className="text-2xl font-bold mb-2">ضمان الجودة</h3>
-                  <p className="text-xl opacity-90 font-medium">معايير دولية</p>
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/30 to-green-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all shadow-xl">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-yellow-500/20 rounded-xl">
+                    <ShieldCheck size={32} className="text-yellow-300" />
+                  </div>
+                  <div className="text-right flex-1">
+                    <h3 className="text-white font-bold text-lg mb-1">ضمان الجودة</h3>
+                    <p className="text-white/80 text-sm">منتجات أصلية 100%</p>
+                  </div>
                 </div>
               </div>
             </div>
