@@ -1,8 +1,14 @@
 "use client";
 
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { toast, ToastContainer, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
+  const form = useRef<HTMLFormElement>(null);
+
   const contactInfo = [
     { 
       icon: <Phone size={32} className="text-green-600" />, 
@@ -30,10 +36,46 @@ export default function Contact() {
     },
   ];
 
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!form.current) return;
+
+    emailjs.sendForm('service_hn86oar', 'template_a68oq47', form.current, '2N9o4zt_6ODE8fi10')
+      .then(() => {
+        toast.success('تم إرسال الرسالة بنجاح!', {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        form.current?.reset();
+      })
+      .catch((error) => {
+        toast.error('❌ فشل إرسال الرسالة. حاول مرة أخرى.', {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        console.log('FAILED...', error.text);
+      });
+  };
+
   return (
     <div className="bg-gradient-to-br from-green-50 via-white to-teal-50 py-24" dir="rtl" id="contact">
       <div className="container mx-auto px-6">
- 
+
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-green-100 px-6 py-2 rounded-full mb-6">
@@ -64,26 +106,28 @@ export default function Contact() {
               </div>
             </div>
 
-            <form className="space-y-6">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name Field */}
                 <div>
-                  <label className="block text-gray-800 font-semibold mb-2">الاسم الكامل *</label>
+                  <label className="block text-gray-800 font-semibold mb-2">الاسم الكامل </label>
                   <input
                     type="text"
+                    name="user_name"
                     placeholder="أدخل اسمك"
-                    className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all text-right"
+                    className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all text-right text-gray-900 placeholder-gray-500 bg-white"
                     required
                   />
                 </div>
 
                 {/* Phone Field */}
                 <div>
-                  <label className="block text-gray-800 font-semibold mb-2">رقم الهاتف *</label>
+                  <label className="block text-gray-800 font-semibold mb-2">موضوع الرسالة </label>
                   <input
-                    type="tel"
-                    placeholder="أدخل رقم هاتفك"
-                    className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all text-right"
+                    type="text"
+                    name="subject"
+                    placeholder="أدخل موضوع الرسالة"
+                    className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all text-right text-gray-900 placeholder-gray-500 bg-white"
                     required
                   />
                 </div>
@@ -94,18 +138,20 @@ export default function Contact() {
                 <label className="block text-gray-800 font-semibold mb-2">البريد الإلكتروني</label>
                 <input
                   type="email"
-                  placeholder="أدخل بريدك الإلكتروني (اختياري)"
-                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all text-right"
+                  name="user_email"
+                  placeholder="أدخل بريدك الإلكتروني"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all text-right text-gray-900 placeholder-gray-500 bg-white"
                 />
               </div>
 
               {/* Message Field */}
               <div>
-                <label className="block text-gray-800 font-semibold mb-2">الرسالة *</label>
+                <label className="block text-gray-800 font-semibold mb-2">الرسالة</label>
                 <textarea
                   rows={5}
+                  name="message"
                   placeholder="اكتب رسالتك أو استفسارك هنا..."
-                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all resize-none text-right"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 outline-none transition-all resize-none text-right text-gray-900 placeholder-gray-500 bg-white"
                   required
                 ></textarea>
               </div>
@@ -113,7 +159,8 @@ export default function Contact() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+                value="Send"
+                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-3 transition-all shadow-xl hover:shadow-2xl hover:scale-105 cursor-pointer"
               >
                 <Send size={22} />
                 إرسال الرسالة
@@ -161,6 +208,9 @@ export default function Contact() {
 
         </div>
       </div>
+      
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 }
