@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Headphones } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const contactInfo = [
