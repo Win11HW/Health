@@ -90,46 +90,36 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div
-          className={`md:hidden ${
-            isScrolled
-              ? 'bg-white/95 backdrop-blur-lg text-gray-900'
-              : 'bg-gray-900/95 backdrop-blur-lg text-white'
-          }`}
-        >
-          <div className="flex flex-col items-start gap-6 p-6">
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-white/95 backdrop-blur-lg text-gray-900">
+              <div className="flex flex-col items-start gap-6 p-6">
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={closeMobileMenu}
+                    className="w-full text-right py-3 px-4 font-bold text-xl rounded-lg transition cursor-pointer text-gray-900 hover:bg-green-100"
+                  >
+                    {item.label}
+                  </a>
+                ))}
 
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={closeMobileMenu}
-                className={`w-full text-right py-3 px-4 font-bold text-xl rounded-lg transition cursor-pointer ${
-                  isScrolled
-                    ? 'text-gray-900 hover:bg-green-100'
-                    : 'text-white hover:bg-white/10'
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-
-            {/* Mobile CTA */}
-            <a
-              href="#contact"
-              onClick={closeMobileMenu}
-              className="relative flex items-center justify-center gap-3 w-full py-3 px-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 cursor-pointer"
-            >
-              <Sparkles size={18} className="animate-pulse text-yellow-300" />
-              <span className="relative z-10">اتصل بنا الآن</span>
-              <Phone size={18} />
-              <span className="absolute inset-0 rounded-xl bg-green-400 opacity-10 hover:opacity-20 transition-opacity duration-300" />
-            </a>
-          </div>
-        </div>
-      )}
+                {/* Mobile CTA */}
+                <a
+                  href="#contact"
+                  onClick={closeMobileMenu}
+                  className="relative flex items-center justify-center gap-3 w-full py-3 px-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 cursor-pointer"
+                >
+                  <Sparkles size={18} className="animate-pulse text-yellow-300" />
+                  <span className="relative z-10">اتصل بنا الآن</span>
+                  <Phone size={18} />
+                  <span className="absolute inset-0 rounded-xl bg-green-400 opacity-10 hover:opacity-20 transition-opacity duration-300" />
+                </a>
+              </div>
+            </div>
+          )}
+    
     </nav>
   );
 };
